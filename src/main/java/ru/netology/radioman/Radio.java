@@ -1,7 +1,6 @@
 package ru.netology.radioman;
 
 public class Radio {
-    private int userStation;
     private int currentStation;
     private int volume;
 
@@ -30,19 +29,17 @@ public class Radio {
         }
     }
 
-    public int getUserStation() {
-        return userStation;
-    }
 
     public void setUserStation(int userInstallation) {
         if (userInstallation >= 0 && userInstallation <= 9) {
-            userStation = userInstallation;
+            currentStation = userInstallation;
         } else {
-            userStation = 0;
+            currentStation = 0;
         }
     }
 
     public int getVolume(){
+
         return volume;
     }
 

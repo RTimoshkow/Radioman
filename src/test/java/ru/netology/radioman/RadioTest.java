@@ -1,6 +1,5 @@
 package ru.netology.radioman;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -10,7 +9,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/nextStation.csv")
-    public void shouldNextStation(String test, int newCurrentStation, int expected) {
+    public void shouldSwitchToNextStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
         radio.setNextStation(newCurrentStation);
@@ -21,7 +20,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/prevStation.csv")
-    public void shouldPrevStation(String test, int newCurrentStation, int expected) {
+    public void shouldSwitchToPrevStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
         radio.setPrevStation(newCurrentStation);
@@ -32,18 +31,18 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/userChoise.csv")
-    public void shouldUserStation(String test, int userInstallation, int expected) {
+    public void shouldSettingUserStation(String test, int userInstallation, int expected) {
         Radio radio = new Radio();
 
         radio.setUserStation(userInstallation);
-        int actual = radio.getUserStation();
+        int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/increaseVolume.csv")
-    public void shouldIncreaseVolume(String test, int newVolume, int expected){
+    public void shouldIncreaseVolume(String test, int newVolume, int expected) {
         Radio radio = new Radio();
 
         radio.setIncreaseVolume(newVolume);
@@ -54,7 +53,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/lowVolume.csv")
-    public void shouldLowVolume(String test, int newVolume, int expected){
+    public void shouldLowerVolume(String test, int newVolume, int expected) {
         Radio radio = new Radio();
 
         radio.setLowVolume(newVolume);
