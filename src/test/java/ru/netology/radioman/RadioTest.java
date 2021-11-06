@@ -12,7 +12,8 @@ public class RadioTest {
     public void shouldSwitchToNextStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
-        radio.setNextStation(newCurrentStation);
+        radio.setCurrentStation(newCurrentStation);
+        radio.setNextStation();
         int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);
@@ -23,7 +24,8 @@ public class RadioTest {
     public void shouldSwitchToPrevStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
-        radio.setPrevStation(newCurrentStation);
+        radio.setCurrentStation(newCurrentStation);
+        radio.setPrevStation();
         int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);
@@ -45,7 +47,8 @@ public class RadioTest {
     public void shouldIncreaseVolume(String test, int newVolume, int expected) {
         Radio radio = new Radio();
 
-        radio.setIncreaseVolume(newVolume);
+        radio.setVolume(newVolume);
+        radio.setIncreaseVolume();
         int actual = radio.getVolume();
 
         assertEquals(expected, actual);
@@ -56,7 +59,8 @@ public class RadioTest {
     public void shouldLowerVolume(String test, int newVolume, int expected) {
         Radio radio = new Radio();
 
-        radio.setLowVolume(newVolume);
+        radio.setVolume(newVolume);
+        radio.setLowVolume();
         int actual = radio.getVolume();
 
         assertEquals(expected, actual);

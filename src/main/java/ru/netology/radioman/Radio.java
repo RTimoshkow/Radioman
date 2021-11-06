@@ -5,27 +5,38 @@ public class Radio {
     private int volume;
 
     public int getCurrentStation() {
+
         return currentStation;
     }
 
-    public void setNextStation(int newCurrentStation) {
-        if (newCurrentStation < 9) {
-            currentStation = newCurrentStation + 1;
+    public void setCurrentStation(int currentStation){
+        this.currentStation = currentStation;
+    }
+
+    public void setNextStation() {
+        if (currentStation < 9 && currentStation >= 0) {
+            currentStation = currentStation + 1;
+            return;
         }
-        if (newCurrentStation == 9 || newCurrentStation < 0 || newCurrentStation > 9) {
+
+        if (currentStation == 9 || currentStation < 0 || currentStation > 9) {
             currentStation = 0;
+            return;
         }
     }
 
-    public void setPrevStation(int newCurrentStation) {
-        if (newCurrentStation <= 9 && newCurrentStation > 0) {
-            currentStation = newCurrentStation - 1;
+    public void setPrevStation() {
+        if (currentStation <= 9 && currentStation > 0) {
+            currentStation = currentStation - 1;
+            return;
         }
-        if (newCurrentStation == 0) {
+        if (currentStation == 0) {
             currentStation = 9;
+            return;
         }
-        if (newCurrentStation < 0) {
+        if (currentStation < 0 || currentStation > 9) {
             currentStation = 0;
+            return;
         }
     }
 
@@ -43,27 +54,37 @@ public class Radio {
         return volume;
     }
 
-    public void setIncreaseVolume(int newVolume) {
-        if (newVolume < 10){
-            volume = newVolume + 1;
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+    public void setIncreaseVolume() {
+        if (volume < 10 && volume >= 0){
+            volume = volume + 1;
+            return;
         }
-        if (newVolume == 10){
-            volume = newVolume;
+        if (volume == 10){
+            volume = volume;
+            return;
         }
-        if (newVolume > 10 || newVolume < 0){
+        if (volume > 10 || volume <= 0){
             volume = 0;
+            return;
         }
     }
 
-    public void setLowVolume(int newVolume){
-        if (newVolume <= 10){
-            volume = newVolume - 1;
+    public void setLowVolume(){
+        if (volume <= 10 && volume > 0){
+            volume = volume - 1;
+            return;
         }
-        if (newVolume == 0){
-            volume = newVolume;
+        if (volume == 0){
+            volume = volume;
+            return;
         }
-        if (newVolume > 10 || newVolume < 0){
+        if (volume > 10 || volume < 0){
             volume = 0;
+            return;
         }
     }
 }
