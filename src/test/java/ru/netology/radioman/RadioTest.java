@@ -1,5 +1,6 @@
 package ru.netology.radioman;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -66,4 +67,29 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "/nextStationConstructor.csv")
+    public void shouldSwitchToNextStationUsingConstructor (String test, int newCurrentStation, int expected) {
+        Radio constructorRadio = new Radio(11);
+
+        constructorRadio.setCurrentStation(newCurrentStation);
+        constructorRadio.setNextStation();
+
+        int actual = constructorRadio.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/prevStationConstructor.csv")
+    public void shouldSwitchToPrevStationUsingConstructor (String test, int newCurrentStation, int expected) {
+        Radio constructorRadio = new Radio(11);
+
+        constructorRadio.setCurrentStation(newCurrentStation);
+        constructorRadio.setPrevStation();
+
+        int actual = constructorRadio.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
 }
