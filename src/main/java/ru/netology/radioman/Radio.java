@@ -14,6 +14,10 @@ public class Radio {
         this.quantityStations = quantityStations;
     }
 
+    public int getQuantityStations() {
+        return quantityStations;
+    }
+
     public int getCurrentStation() {
 
         return currentStation;
@@ -28,8 +32,9 @@ public class Radio {
         if (currentStation < quantityStations && currentStation >= 0) {
             currentStation = currentStation + 1;
             return;
-        } else
+        } else {
             currentStation = 0;
+        }
         return;
     }
 
@@ -41,8 +46,9 @@ public class Radio {
         if (currentStation == 0) {
             currentStation = quantityStations;
             return;
-        } else
+        } else {
             currentStation = 0;
+        }
         return;
 
     }
@@ -74,8 +80,9 @@ public class Radio {
         if (volume == 100) {
             volume = volume;
             return;
-        } else
+        } else {
             volume = 0;
+        }
         return;
 
     }
@@ -88,8 +95,9 @@ public class Radio {
         if (volume == 0) {
             volume = volume;
             return;
-        } else
+        } else {
             volume = 0;
+        }
         return;
     }
 

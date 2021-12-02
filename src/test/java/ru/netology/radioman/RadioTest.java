@@ -69,7 +69,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/nextStationConstructor.csv")
-    public void shouldSwitchToNextStationUsingConstructor (String test, int newCurrentStation, int expected) {
+    public void shouldSwitchToNextStationUsingConstructor(String test, int newCurrentStation, int expected) {
         Radio constructorRadio = new Radio(11);
 
         constructorRadio.setCurrentStation(newCurrentStation);
@@ -82,7 +82,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/prevStationConstructor.csv")
-    public void shouldSwitchToPrevStationUsingConstructor (String test, int newCurrentStation, int expected) {
+    public void shouldSwitchToPrevStationUsingConstructor(String test, int newCurrentStation, int expected) {
         Radio constructorRadio = new Radio(11);
 
         constructorRadio.setCurrentStation(newCurrentStation);
@@ -91,5 +91,12 @@ public class RadioTest {
         int actual = constructorRadio.getCurrentStation();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldInitQuantityStations(){
+        Radio quantityStations = new Radio(11);
+
+        assertEquals(11, quantityStations.getQuantityStations());
     }
 }
