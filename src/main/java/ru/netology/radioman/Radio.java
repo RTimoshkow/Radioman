@@ -1,7 +1,7 @@
 package ru.netology.radioman;
 
 public class Radio {
-    private int quantityStations = 9;
+    private int quantityStations = 10;
     private int currentStation;
     private int volume;
 
@@ -10,21 +10,22 @@ public class Radio {
     }
 
     public Radio(int quantityStations) {
-
         this.quantityStations = quantityStations;
     }
 
     public int getQuantityStations() {
-        return quantityStations;
+        return quantityStations - 1;
+    }
+
+    public void setQuantityStations() {
+        quantityStations = quantityStations -1;
     }
 
     public int getCurrentStation() {
-
         return currentStation;
     }
 
     public void setCurrentStation(int currentStation) {
-
         this.currentStation = currentStation;
     }
 
@@ -100,5 +101,4 @@ public class Radio {
         }
         return;
     }
-
 }
