@@ -1,85 +1,87 @@
 package ru.netology.radioman;
 
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
+    private int quantityStations = 10;
     private int currentStation;
     private int volume;
 
-    public int getCurrentStation() {
-
-        return currentStation;
+    public Radio(int quantityStations) {
+        this.quantityStations = quantityStations;
     }
 
-    public void setCurrentStation(int currentStation) {
-        this.currentStation = currentStation;
+    public int getQuantityStations() {
+        return quantityStations - 1;
+    }
+
+    public void setQuantityStations() {
+        quantityStations = quantityStations -1;
     }
 
     public void setNextStation() {
-        if (currentStation < 9 && currentStation >= 0) {
+        if (currentStation < quantityStations && currentStation >= 0) {
             currentStation = currentStation + 1;
             return;
-        } else
+        } else {
             currentStation = 0;
+        }
         return;
     }
 
     public void setPrevStation() {
-        if (currentStation <= 9 && currentStation > 0) {
+        if (currentStation <= quantityStations && currentStation > 0) {
             currentStation = currentStation - 1;
             return;
         }
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = quantityStations;
             return;
-        } else
+        } else {
             currentStation = 0;
+        }
         return;
 
     }
 
 
     public void setUserStation(int userInstallation) {
-        if (userInstallation >= 0 && userInstallation <= 9) {
+        if (userInstallation >= 0 && userInstallation <= quantityStations) {
             currentStation = userInstallation;
         } else {
             currentStation = 0;
         }
     }
 
-    public int getVolume() {
-
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-
-        this.volume = volume;
-    }
-
     public void setIncreaseVolume() {
-        if (volume < 10 && volume >= 0) {
+        if (volume < 100 && volume >= 0) {
             volume = volume + 1;
             return;
         }
-        if (volume == 10) {
+        if (volume == 100) {
             volume = volume;
             return;
-        } else
+        } else {
             volume = 0;
+        }
         return;
 
     }
 
     public void setLowVolume() {
-        if (volume <= 10 && volume > 0) {
+        if (volume <= 100 && volume > 0) {
             volume = volume - 1;
             return;
         }
         if (volume == 0) {
             volume = volume;
             return;
-        } else
+        } else {
             volume = 0;
+        }
         return;
     }
-
 }

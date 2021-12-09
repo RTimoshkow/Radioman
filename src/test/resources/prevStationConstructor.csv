@@ -1,0 +1,8 @@
+prev station with a negative value, -100, 0
+prev station with a minimum negative value, -1, 0
+prev station at zero value, 0, 11
+prev station with the minimum positive value, 1, 0
+prev station before the upper border, 10, 9
+prev station is the upper border, 11, 10
+prev station is outside the upper border, 12, 0
+prev station when entering a large number, 100, 0
