@@ -1,13 +1,14 @@
 package ru.netology.radioman;
 
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int quantityStations = 10;
     private int currentStation;
     private int volume;
-
-    public Radio() {
-
-    }
 
     public Radio(int quantityStations) {
         this.quantityStations = quantityStations;
@@ -19,14 +20,6 @@ public class Radio {
 
     public void setQuantityStations() {
         quantityStations = quantityStations -1;
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(int currentStation) {
-        this.currentStation = currentStation;
     }
 
     public void setNextStation() {
@@ -61,16 +54,6 @@ public class Radio {
         } else {
             currentStation = 0;
         }
-    }
-
-    public int getVolume() {
-
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-
-        this.volume = volume;
     }
 
     public void setIncreaseVolume() {
