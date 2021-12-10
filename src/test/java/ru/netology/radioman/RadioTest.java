@@ -1,5 +1,6 @@
 package ru.netology.radioman;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -11,6 +12,7 @@ public class RadioTest {
     @CsvFileSource(resources = "/nextStation.csv")
     public void shouldSwitchToNextStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
+
 
         radio.setCurrentStation(newCurrentStation);
         radio.setNextStation();
@@ -24,6 +26,7 @@ public class RadioTest {
     public void shouldSwitchToPrevStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
+
         radio.setCurrentStation(newCurrentStation);
         radio.setPrevStation();
         int actual = radio.getCurrentStation();
@@ -35,6 +38,7 @@ public class RadioTest {
     @CsvFileSource(resources = "/userChoise.csv")
     public void shouldSettingUserStation(String test, int userInstallation, int expected) {
         Radio radio = new Radio();
+
 
         radio.setUserStation(userInstallation);
         int actual = radio.getCurrentStation();
@@ -64,6 +68,41 @@ public class RadioTest {
         int actual = radio.getVolume();
 
         assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/nextStationConstructor.csv")
+    public void shouldSwitchToNextStationUsingConstructor(String test, int newCurrentStation, int expected) {
+        Radio constructorRadio = new Radio(12);
+
+
+        constructorRadio.setCurrentStation(newCurrentStation);
+        constructorRadio.setNextStation();
+
+        int actual = constructorRadio.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/prevStationConstructor.csv")
+    public void shouldSwitchToPrevStationUsingConstructor(String test, int newCurrentStation, int expected) {
+        Radio constructorRadio = new Radio(12);
+
+
+        constructorRadio.setCurrentStation(newCurrentStation);
+        constructorRadio.setPrevStation();
+
+        int actual = constructorRadio.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldInitQuantityStations(){
+        Radio quantityStations = new Radio(12);
+
+        assertEquals(11, quantityStations.getStation());
     }
 
 }

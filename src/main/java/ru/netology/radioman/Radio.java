@@ -1,11 +1,25 @@
 package ru.netology.radioman;
 
 public class Radio {
+
+    private int quantityStations = 10;
+    private int station = quantityStations - 1;
     private int currentStation;
     private int volume;
 
-    public int getCurrentStation() {
+    public Radio() {
+    }
 
+    public Radio(int quantityStations) {
+        this.quantityStations = quantityStations;
+        this.station = quantityStations - 1;
+    }
+
+    public int getStation() {
+        return station;
+    }
+
+    public int getCurrentStation() {
         return currentStation;
     }
 
@@ -14,31 +28,33 @@ public class Radio {
     }
 
     public void setNextStation() {
-        if (currentStation < 9 && currentStation >= 0) {
+        if (currentStation < station && currentStation >= 0) {
             currentStation = currentStation + 1;
             return;
-        } else
+        } else {
             currentStation = 0;
+        }
         return;
     }
 
     public void setPrevStation() {
-        if (currentStation <= 9 && currentStation > 0) {
+        if (currentStation <= station && currentStation > 0) {
             currentStation = currentStation - 1;
             return;
         }
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = station;
             return;
-        } else
+        } else {
             currentStation = 0;
+        }
         return;
 
     }
 
 
     public void setUserStation(int userInstallation) {
-        if (userInstallation >= 0 && userInstallation <= 9) {
+        if (userInstallation >= 0 && userInstallation <= station) {
             currentStation = userInstallation;
         } else {
             currentStation = 0;
@@ -56,30 +72,31 @@ public class Radio {
     }
 
     public void setIncreaseVolume() {
-        if (volume < 10 && volume >= 0) {
+        if (volume < 100 && volume >= 0) {
             volume = volume + 1;
             return;
         }
-        if (volume == 10) {
+        if (volume == 100) {
             volume = volume;
             return;
-        } else
+        } else {
             volume = 0;
+        }
         return;
 
     }
 
     public void setLowVolume() {
-        if (volume <= 10 && volume > 0) {
+        if (volume <= 100 && volume > 0) {
             volume = volume - 1;
             return;
         }
         if (volume == 0) {
             volume = volume;
             return;
-        } else
+        } else {
             volume = 0;
+        }
         return;
     }
-
 }
