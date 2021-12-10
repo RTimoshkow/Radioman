@@ -1,24 +1,22 @@
 package ru.netology.radioman;
 
 public class Radio {
+
     private int quantityStations = 10;
+    private int station = quantityStations - 1;
     private int currentStation;
     private int volume;
 
     public Radio() {
-
     }
 
     public Radio(int quantityStations) {
         this.quantityStations = quantityStations;
+        this.station = quantityStations - 1;
     }
 
-    public int getQuantityStations() {
-        return quantityStations - 1;
-    }
-
-    public void setQuantityStations() {
-        quantityStations = quantityStations -1;
+    public int getStation() {
+        return station;
     }
 
     public int getCurrentStation() {
@@ -30,7 +28,7 @@ public class Radio {
     }
 
     public void setNextStation() {
-        if (currentStation < quantityStations && currentStation >= 0) {
+        if (currentStation < station && currentStation >= 0) {
             currentStation = currentStation + 1;
             return;
         } else {
@@ -40,12 +38,12 @@ public class Radio {
     }
 
     public void setPrevStation() {
-        if (currentStation <= quantityStations && currentStation > 0) {
+        if (currentStation <= station && currentStation > 0) {
             currentStation = currentStation - 1;
             return;
         }
         if (currentStation == 0) {
-            currentStation = quantityStations;
+            currentStation = station;
             return;
         } else {
             currentStation = 0;
@@ -56,7 +54,7 @@ public class Radio {
 
 
     public void setUserStation(int userInstallation) {
-        if (userInstallation >= 0 && userInstallation <= quantityStations) {
+        if (userInstallation >= 0 && userInstallation <= station) {
             currentStation = userInstallation;
         } else {
             currentStation = 0;

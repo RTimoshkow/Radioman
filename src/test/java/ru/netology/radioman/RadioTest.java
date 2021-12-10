@@ -13,7 +13,7 @@ public class RadioTest {
     public void shouldSwitchToNextStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
-        radio.setQuantityStations();
+
         radio.setCurrentStation(newCurrentStation);
         radio.setNextStation();
         int actual = radio.getCurrentStation();
@@ -26,7 +26,7 @@ public class RadioTest {
     public void shouldSwitchToPrevStation(String test, int newCurrentStation, int expected) {
         Radio radio = new Radio();
 
-        radio.setQuantityStations();
+
         radio.setCurrentStation(newCurrentStation);
         radio.setPrevStation();
         int actual = radio.getCurrentStation();
@@ -39,7 +39,7 @@ public class RadioTest {
     public void shouldSettingUserStation(String test, int userInstallation, int expected) {
         Radio radio = new Radio();
 
-        radio.setQuantityStations();
+
         radio.setUserStation(userInstallation);
         int actual = radio.getCurrentStation();
 
@@ -75,7 +75,7 @@ public class RadioTest {
     public void shouldSwitchToNextStationUsingConstructor(String test, int newCurrentStation, int expected) {
         Radio constructorRadio = new Radio(12);
 
-        constructorRadio.setQuantityStations();
+
         constructorRadio.setCurrentStation(newCurrentStation);
         constructorRadio.setNextStation();
 
@@ -89,7 +89,7 @@ public class RadioTest {
     public void shouldSwitchToPrevStationUsingConstructor(String test, int newCurrentStation, int expected) {
         Radio constructorRadio = new Radio(12);
 
-        constructorRadio.setQuantityStations();
+
         constructorRadio.setCurrentStation(newCurrentStation);
         constructorRadio.setPrevStation();
 
@@ -102,7 +102,7 @@ public class RadioTest {
     public void shouldInitQuantityStations(){
         Radio quantityStations = new Radio(12);
 
-        assertEquals(11, quantityStations.getQuantityStations());
+        assertEquals(11, quantityStations.getStation());
     }
 
 }
